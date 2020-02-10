@@ -4,15 +4,16 @@ import Head from '../components/head';
 import Nav from '../components/nav';
 
 const Home = () => {
-  const [date, setDate] = useState(null);
+  const [batman, setBatman] = useState(null);
 
   useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.json();
-      setDate(newDate);
+    async function getBatman() {
+      const res = await fetch('/api/batman');
+      const whoIsBatman = await res.json();
+      console.log(whoIsBatman);
+      setBatman(whoIsBatman);
     }
-    getDate();
+    getBatman();
   }, []);
 
   return (
@@ -22,16 +23,13 @@ const Home = () => {
 
       <div className="hero">
         <h1 className="title">Welcome to Next!</h1>
-        <p className="description">
-          To get started, edit the <code>pages/index.js</code> or{' '}
-          <code>pages/api/date.js</code> files, then save to reload.
-        </p>
+        
 
         <p className="row date">
-          The date is:&nbsp;{' '}
-          {date ? (
+          Batman is:&nbsp;{' '}
+          {batman ? (
             <span>
-              <b>{date.date}</b>
+              <b>{batman.batman}</b>
             </span>
           ) : (
             <span className="loading"></span>
