@@ -1,5 +1,7 @@
 {
-  "env": {
-    "BATMAN": "@batman"
+  "build": {
+    "env": {
+      "BATMAN": "@batman"
+    }
   }
 }
